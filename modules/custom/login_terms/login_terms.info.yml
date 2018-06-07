@@ -1,0 +1,5 @@
+name: 'Login Terms'
+type: module
+description: 'This module for terms and condition after login.'
+core: 8.x
+package: 'DRP'

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains login_terms.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function login_terms_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the login_terms module.
+    case 'help.page.login_terms':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module for terms and condition after login.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function login_terms_theme() {
+  return [
+    'login_terms' => [
+      'render element' => 'children',
+    ],
+  ];
+}

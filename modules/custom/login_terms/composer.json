@@ -1,0 +1,14 @@
+{
+  "name": "drupal/login_terms",
+  "type": "drupal-module",
+  "description": "This module for terms and condition after login.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/login_terms",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/login_terms",
+    "source": "http://cgit.drupalcode.org/login_terms"
+  },
+  "require": { }
+}
