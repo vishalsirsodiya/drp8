@@ -1,0 +1,24 @@
+name: ihub
+type: theme
+description: 'This is drp ihub boostrap themes'
+package: bootstrap
+core: 8.x
+libraries:
+  - ihub/global-styling
+ 
+base theme: bootstrap
+
+regions:
+  search: Search
+  login_slider: Login Slider
+  login_form: Login Form
+  navigation: Navigation
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  primary: Primary
+  middle_content: Middle Content
+  secondary: Secondary
+  footer: Footer
+  page_top: Page top
+  page_bottom: Page bottom
