@@ -1,0 +1,7 @@
+login_terms.login_terms_form:
+  title: 'Login Terms'
+  route_name: login_terms.login_terms_form
+  description: 'This is login terms config form'
+  parent: system.admin_config_system
+  weight: 99
+

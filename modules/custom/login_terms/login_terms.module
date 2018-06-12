@@ -6,7 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Implements hook_help().
  */
@@ -26,10 +27,35 @@ function login_terms_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function login_terms_theme() {
+function login_terms_theme($existing, $type, $theme, $path) {
   return [
     'login_terms' => [
-      'render element' => 'children',
+      'variables' => ['test_var' => "Vishal Sirsodiya"],
     ],
   ];
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function login_terms_form_alter(&$form, $form_state, $form_id) {
+  // Add login handler for login terms.
+  if($form_id === 'user_login_form'){
+    // Get the login terms status.
+    $login_terms_status = \Drupal::config('login_terms.loginterms')->get('login_terms_and_condition');
+    // $login_terms_body = \Drupal::config('login_terms.loginterms')->get('terms_and_condition');
+    if($login_terms_status === 1){
+      $form['#submit'][] = 'login_terms_page_handler';
+    }
+  }
+}
+ 
+/**
+ * Implements drupal_handler() on behalf of login_terms.module.
+ */
+function login_terms_page_handler($form, &$form_state) {
+  drupal_set_message(t('Login terms & condition accepted by user : @user', ['@user' => "Accept Terms"]));
+  $response = new RedirectResponse("/login_terms/form/login_terms_page");
+  $response->send();
 }
